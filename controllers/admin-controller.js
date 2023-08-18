@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin.js");
 
 
-export const addAdmin = async (req, res, next) => {
+ const addAdmin = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email && email.trim() === "" && !password && password.trim() === "") {
     return res.status(422).json({ message: "Invalid Inputs" });
@@ -34,7 +34,7 @@ export const addAdmin = async (req, res, next) => {
   return res.status(201).json({ admin });
 };
 
-export const adminLogin = async (req, res, next) => {
+ const adminLogin = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email && email.trim() === "" && !password && password.trim() === "") {
     return res.status(422).json({ message: "Invalid Inputs" });
@@ -66,7 +66,7 @@ export const adminLogin = async (req, res, next) => {
     .json({ message: "Authentication Complete", token, id: existingAdmin._id });
 };
 
-export const getAdmins = async (req, res, next) => {
+ const getAdmins = async (req, res, next) => {
   let admins;
   try {
     admins = await Admin.find();
@@ -79,7 +79,7 @@ export const getAdmins = async (req, res, next) => {
   return res.status(200).json({ admins });
 };
 
-export const getAdminById = async (req, res, next) => {
+ const getAdminById = async (req, res, next) => {
   const id = req.params.id;
 
   let admin;
@@ -92,4 +92,11 @@ export const getAdminById = async (req, res, next) => {
     return console.log("Cannot find Admin");
   }
   return res.status(200).json({ admin });
+};
+
+module.exports = {
+  addAdmin,
+  adminLogin,
+  getAdmins,
+  getAdminById,
 };

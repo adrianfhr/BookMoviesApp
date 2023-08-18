@@ -3,7 +3,7 @@ const User = require("../models/User.js");
 const Bookings = require("../models/Bookings.js");
 
 
-export const getAllUsers = async (req, res, next) => {
+const getAllUsers = async (req, res, next) => {
   let users;
   try {
     users = await User.find();
@@ -16,7 +16,7 @@ export const getAllUsers = async (req, res, next) => {
   return res.status(200).json({ users });
 };
 
-export const singup = async (req, res, next) => {
+const singup = async (req, res, next) => {
   const { name, email, password } = req.body;
   if (
     !name &&
@@ -41,7 +41,7 @@ export const singup = async (req, res, next) => {
   }
   return res.status(201).json({ id: user._id });
 };
-export const updateUser = async (req, res, next) => {
+const updateUser = async (req, res, next) => {
   const id = req.params.id;
   const { name, email, password, balance } = req.body;
 
@@ -74,7 +74,7 @@ export const updateUser = async (req, res, next) => {
   res.status(200).json({ message: "Updated successfully", user });
 };
 
-export const deleteUser = async (req, res, next) => {
+const deleteUser = async (req, res, next) => {
   const id = req.params.id;
   let user;
   try {
@@ -88,7 +88,7 @@ export const deleteUser = async (req, res, next) => {
   return res.status(200).json({ message: "Deleted Successfully" });
 };
 
-export const login = async (req, res, next) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email && email.trim() === "" && !password && password.trim() === "") {
     return res.status(422).json({ message: "Invalid Inputs" });
@@ -116,7 +116,7 @@ export const login = async (req, res, next) => {
     .status(200)
     .json({ message: "Login Successfull", id: existingUser._id });
 };
-export const getBookingsOfUser = async (req, res, next) => {
+const getBookingsOfUser = async (req, res, next) => {
   const id = req.params.id;
   let bookings;
   try {
@@ -131,7 +131,7 @@ export const getBookingsOfUser = async (req, res, next) => {
   }
   return res.status(200).json({ bookings });
 };
-export const getUserById = async (req, res, next) => {
+const getUserById = async (req, res, next) => {
   const id = req.params.id;
   let user;
   try {
@@ -143,4 +143,14 @@ export const getUserById = async (req, res, next) => {
     return res.status(500).json({ message: "Unexpected Error Occured" });
   }
   return res.status(200).json({ user });
+};
+
+module.exports = {
+  deleteUser,
+  getAllUsers,
+  getBookingsOfUser,
+  getUserById,
+  login,
+  singup,
+  updateUser,
 };

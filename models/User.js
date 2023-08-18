@@ -22,4 +22,5 @@ const userSchema = new Schema({
   bookings: [{ type: mongoose.Types.ObjectId, ref: "Booking" }],
 });
 
-export default mongoose.model("User", userSchema);
+
+module.exports = mongoose.model("User", userSchema);

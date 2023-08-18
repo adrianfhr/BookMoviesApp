@@ -4,7 +4,7 @@ const Movie = require("../models/Movie");
 const Admin = require("../models/Admin");
 
 
-export const addMovie = async (req, res, next) => {
+ const addMovie = async (req, res, next) => {
   const extractedToken = req.headers.authorization.split(" ")[1];
   if (!extractedToken && extractedToken.trim() === "") {
     return res.status(404).json({ message: "Token Not Found" });
@@ -69,7 +69,7 @@ export const addMovie = async (req, res, next) => {
   return res.status(201).json({ movie });
 };
 
-export const getAllMovies = async (req, res, next) => {
+ const getAllMovies = async (req, res, next) => {
   let movies;
 
   try {
@@ -84,7 +84,7 @@ export const getAllMovies = async (req, res, next) => {
   return res.status(200).json({ movies });
 };
 
-export const getMovieById = async (req, res, next) => {
+ const getMovieById = async (req, res, next) => {
   const id = req.params.id;
   let movie;
   try {
@@ -98,4 +98,10 @@ export const getMovieById = async (req, res, next) => {
   }
 
   return res.status(200).json({ movie });
+};
+
+module.exports = {
+  addMovie,
+  getAllMovies,
+  getMovieById,
 };

@@ -3,7 +3,7 @@ const Bookings = require("../models/Bookings.js");
 const Movie = require("../models/Movie.js");
 const User = require("../models/User.js");
 
-export const newBooking = async (req, res, next) => {
+ const newBooking = async (req, res, next) => {
   const { movie, date, seatNumber, price, user } = req.body;
 
   let existingMovie;
@@ -49,7 +49,7 @@ export const newBooking = async (req, res, next) => {
   return res.status(201).json({ booking });
 };
 
-export const getBookingById = async (req, res, next) => {
+ const getBookingById = async (req, res, next) => {
   const id = req.params.id;
   let booking;
   try {
@@ -63,7 +63,7 @@ export const getBookingById = async (req, res, next) => {
   return res.status(200).json({ booking });
 };
 
-export const deleteBooking = async (req, res, next) => {
+ const deleteBooking = async (req, res, next) => {
   const id = req.params.id;
   let booking;
   try {
@@ -83,4 +83,10 @@ export const deleteBooking = async (req, res, next) => {
     return res.status(500).json({ message: "Unable to Delete" });
   }
   return res.status(200).json({ message: "Successfully Deleted" });
+};
+
+module.exports = {
+  newBooking,
+  getBookingById,
+  deleteBooking,
 };

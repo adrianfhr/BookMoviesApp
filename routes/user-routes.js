@@ -22,4 +22,4 @@ userRouter.delete("/:id", deleteUser);
 userRouter.post("/login", login);
 userRouter.get("/bookings/:id", getBookingsOfUser);
 
-export default userRouter;
+module.exports = userRouter;
