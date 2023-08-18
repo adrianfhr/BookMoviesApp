@@ -1,0 +1,30 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    * {
+    }
+}
+
+@layer components {
+    .hamburger-line {
+            @apply w-[30px] h-[2px] my-2 block bg-slate-900;
+    }
+    .navbar-fixed {
+        @apply fixed z-[999];
+    }
+    @font-face {
+        font-family: 'Poppins';
+        src: url(../assets/fonts/Poppins-Regular.ttf);
+    }
+
+    @font-face {
+        font-family: 'Dancing';
+        src: url(../assets/fonts/Dancing-Script.ttf) ;
+    }
+    @font-face {
+        font-family: 'Merriweather';
+        src: url(../assets/fonts/Merriweather-Regular.ttf);
+    }
+}
