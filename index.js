@@ -25,7 +25,7 @@ app.use("/booking", bookingsRouter);
   try {
     console.log("Starting MongoDB connection...");
     await mongoose.connect(
-      `mongodb+srv://18221002:${process.env.MONGODB_PASSWORD}@cluster0.3vhi5xq.mongodb.net/`,
+      `mongodb+srv://user:${process.env.MONGODB_PASSWORD}@cluster0.3vhi5xq.mongodb.net/?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true
