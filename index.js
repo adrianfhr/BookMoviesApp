@@ -1,13 +1,13 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import userRouter from "./routes/user-routes.js";
-import adminRouter from "./routes/admin-routes.js";
-import movieRouter from "./routes/movie-routes.js";
-import bookingsRouter from "./routes/booking-routes.js";
-import cors from "cors";
-
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const userRouter = require("./routes/user-routes.js");
+const adminRouter = require("./routes/admin-routes.js");
+const movieRouter = require("./routes/movie-routes.js");
+const bookingsRouter = require("./routes/booking-routes.js");
+const cors = require("cors");
 dotenv.config();
+
 const app = express();
 
 // middlewares
