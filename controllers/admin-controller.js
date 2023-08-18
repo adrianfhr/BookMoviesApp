@@ -1,6 +1,7 @@
-import Admin from "../models/Admin.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const Admin = require("../models/Admin.js");
+
 
 export const addAdmin = async (req, res, next) => {
   const { email, password } = req.body;

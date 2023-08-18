@@ -1,13 +1,13 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   deleteBooking,
   getBookingById,
   newBooking,
-} from "../controllers/booking-controller.js";
+} = require("../controllers/booking-controller.js");
 
 const bookingsRouter = express.Router();
 
 bookingsRouter.get("/:id", getBookingById);
 bookingsRouter.post("/", newBooking);
 bookingsRouter.delete("/:id", deleteBooking);
-export default bookingsRouter;
+module.exports = bookingsRouter;

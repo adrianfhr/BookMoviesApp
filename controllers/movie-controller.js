@@ -1,7 +1,8 @@
-import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
-import Admin from "../models/Admin.js";
-import Movie from "../models/Movie.js";
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const Movie = require("../models/Movie");
+const Admin = require("../models/Admin");
+
 
 export const addMovie = async (req, res, next) => {
   const extractedToken = req.headers.authorization.split(" ")[1];

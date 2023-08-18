@@ -1,5 +1,7 @@
-import express from "express";
-import {
+const express = require("express");
+const userController = require("../controllers/user-controller.js");
+
+const {
   deleteUser,
   getAllUsers,
   getBookingsOfUser,
@@ -7,7 +9,8 @@ import {
   login,
   singup,
   updateUser,
-} from "../controllers/user-controller.js";
+} = userController;
+
 
 const userRouter = express.Router();
 

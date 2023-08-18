@@ -1,6 +1,4 @@
-import mongoose from "mongoose";
-
-
+const mongoose = require("mongoose");
 
 const movieSchema = new mongoose.Schema({
   idFilm:{
