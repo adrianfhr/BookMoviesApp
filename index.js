@@ -6,6 +6,7 @@ const adminRouter = require("./routes/admin-routes.js");
 const movieRouter = require("./routes/movie-routes.js");
 const bookingsRouter = require("./routes/booking-routes.js");
 const cors = require("cors");
+
 dotenv.config();
 
 const app = express();
